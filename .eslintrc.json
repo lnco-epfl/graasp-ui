@@ -5,11 +5,7 @@
     "prettier",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": [
-    "import",
-    "jsx-a11y",
-    "@typescript-eslint"
-  ],
+  "plugins": ["import", "jsx-a11y", "@typescript-eslint"],
   "env": {
     "node": true,
     "browser": true
@@ -24,7 +20,7 @@
   },
   "settings": {
     "react": {
-      "version": "17"
+      "version": "18"
     }
   },
   "rules": {
@@ -53,10 +49,7 @@
   "overrides": [
     {
       // enable the rule specifically for TypeScript files
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
+      "files": ["*.ts", "*.tsx"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": [
           "error",
