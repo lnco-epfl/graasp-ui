@@ -3,10 +3,7 @@ type Props = {
 };
   
 const EPFLLogo = ({height}: Props): JSX.Element => (
-    <svg id="logo_epfl_2019" data-name="logo epfl 2019" xmlns="http://www.w3.org/2000/svg" height={height} viewBox="0 0 182.4 53">
-        <defs>
-            <style>.cls-1{{fill:'red'}}</style>
-        </defs>
+    <svg id="logo_epfl_2019" data-name="logo epfl 2019" xmlns="http://www.w3.org/2000/svg" height={height} style={{color:'red'}} viewBox="0 0 182.4 53">
         <title>epfl-logo-new</title>
         <polygon className="cls-1" points="0 21.6 11.43 21.6 11.43 9.8 38.34 9.8 38.34 0 0 0 0 21.6"/>
         <polygon className="cls-1" points="0 53 38.34 53 38.34 43.2 11.43 43.2 11.43 31.4 0 31.4 0 53"/>
