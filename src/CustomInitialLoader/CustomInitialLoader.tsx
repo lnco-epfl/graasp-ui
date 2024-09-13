@@ -3,7 +3,6 @@ import {
   LinearProgress,
   linearProgressClasses,
   styled,
-  useTheme,
 } from '@mui/material';
 
 import GraaspLogo from '../GraaspLogo/GraaspLogo.js';

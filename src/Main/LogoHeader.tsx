@@ -15,7 +15,7 @@ const LogoHeader = (): JSX.Element => (
       color='currentcolor'
       variant='h6'
     >
-      Graasp
+      EPFL LNCO Lab
     </Typography>
   </Stack>
 );

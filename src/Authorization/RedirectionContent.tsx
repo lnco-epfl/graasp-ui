@@ -1,4 +1,4 @@
-import { Container, Typography, styled, useTheme } from '@mui/material';
+import { Container, Typography, styled } from '@mui/material';
 
 import { Link, LinkProps } from 'react-router-dom';
 
