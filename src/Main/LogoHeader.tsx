@@ -1,6 +1,7 @@
 import { Stack, Typography } from '@mui/material';
 
 import GraaspLogo from '../GraaspLogo/GraaspLogo.js';
+import EPFLLogo from '@/GraaspLogo/EpflLogo.js';
 
 const LogoHeader = (): JSX.Element => (
   <Stack
@@ -10,6 +11,7 @@ const LogoHeader = (): JSX.Element => (
     color='inherit'
   >
     <GraaspLogo height={50}/>
+    <EPFLLogo height={20}
     <Typography
       sx={{ display: { xs: 'none', sm: 'block' } }}
       color='currentcolor'
