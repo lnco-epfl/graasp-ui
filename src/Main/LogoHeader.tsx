@@ -9,11 +9,12 @@ const LogoHeader = (): JSX.Element => (
     alignItems='center'
     textTransform='none'
     color='inherit'
+    spacing={1}
   >
     <GraaspLogo height={50} />
     <EPFLLogo height={20} />
     <Typography
-      sx={{ display: { xs: 'none', sm: 'block' } }}
+      sx={{ display: { xs: 'none', sm: 'block' }}}
       color='currentcolor'
       variant='h6'
     >
