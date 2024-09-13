@@ -10,8 +10,8 @@ const LogoHeader = (): JSX.Element => (
     textTransform='none'
     color='inherit'
   >
-    <GraaspLogo height={50}/>
-    <EPFLLogo height={20}
+    <GraaspLogo height={50} />
+    <EPFLLogo height={20} />
     <Typography
       sx={{ display: { xs: 'none', sm: 'block' } }}
       color='currentcolor'
