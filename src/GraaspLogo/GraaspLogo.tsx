@@ -1,6 +1,10 @@
-const GraaspLogo = (): JSX.Element => {
+type Props = {
+  height: number
+}
+
+const GraaspLogo = ({height}: Props): JSX.Element => {
   return (
-    <img alt="LNCO Logo" height="200" src="/lnco-logo.jpg" />
+    <img alt="LNCO Logo" height={height} src="/lnco-logo.jpg" />
   );
 };
 

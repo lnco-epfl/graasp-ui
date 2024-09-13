@@ -37,7 +37,7 @@ const CustomInitialLoader = ({ id }: CustomInitialLoaderProps): JSX.Element => {
   const theme = useTheme();
   return (
     <StyledContainer id={id}>
-      <GraaspLogo height={170} sx={{ fill: theme.palette.primary.main }} />
+      <GraaspLogo height={100}/>
       <div>
         <StyledLinearProgress />
       </div>

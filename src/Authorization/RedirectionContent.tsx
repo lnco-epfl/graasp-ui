@@ -35,11 +35,10 @@ const RedirectionContent = ({
   redirectionLinkText,
   id,
 }: Props): JSX.Element => {
-  const theme = useTheme();
 
   return (
     <StyledContainer id={id}>
-      <GraaspLogo/>
+      <GraaspLogo height="100"/>
       <div>
         <StyledTypography variant='h4' align='center'>
           {redirectionText ?? 'You are being redirected…'}

@@ -9,7 +9,7 @@ const LogoHeader = (): JSX.Element => (
     textTransform='none'
     color='inherit'
   >
-    <GraaspLogo height={40} sx={{ fill: 'white' }} />
+    <GraaspLogo height={50}/>
     <Typography
       sx={{ display: { xs: 'none', sm: 'block' } }}
       color='currentcolor'
