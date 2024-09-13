@@ -39,7 +39,7 @@ const RedirectionContent = ({
 
   return (
     <StyledContainer id={id}>
-      <GraaspLogo height={100} sx={{ fill: theme.palette.primary.main }} />
+      <GraaspLogo/>
       <div>
         <StyledTypography variant='h4' align='center'>
           {redirectionText ?? 'You are being redirected…'}
