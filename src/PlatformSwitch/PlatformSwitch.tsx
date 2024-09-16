@@ -12,7 +12,6 @@ import {
 import {
   AnalyticsIcon,
   BuildIcon,
-  LibraryIcon,
   PlayIcon,
 } from '../icons/index.js';
 import { PRIMARY_COLOR, SECONDARY_COLOR } from '../theme.js';
@@ -79,7 +78,6 @@ type IconProps = {
 const PlatformIcons: Record<Platform, (props: IconProps) => JSX.Element> = {
   [Platform.Builder]: BuildIcon,
   [Platform.Player]: PlayIcon,
-  [Platform.Library]: LibraryIcon,
   [Platform.Analytics]: AnalyticsIcon,
 };
 
