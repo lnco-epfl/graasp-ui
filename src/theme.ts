@@ -8,7 +8,7 @@ import {
 import { Context } from '@graasp/sdk';
 
 export const PRIMARY_COLOR = '#000000';
-export const SECONDARY_COLOR = '#FFFFFF';
+export const SECONDARY_COLOR = '#FF0000';
 
 /**
  * Here we explicitly set primary and secondary text colors.
@@ -33,7 +33,7 @@ export const DEFAULT_LIGHT_PRIMARY_COLOR = {
  * Very light red color used as the default background color.
  * Alternative to the pure white default
  */
-export const DEFAULT_BACKGROUND_COLOR = '#fffdfd';
+export const DEFAULT_BACKGROUND_COLOR = '#fffefe';
 
 export const AccentColors: { [K in Context]: string } = {
   [Context.Builder]: '#e0e1e3',
