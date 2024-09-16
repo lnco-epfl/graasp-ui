@@ -96,9 +96,6 @@ export const createGraaspTheme = ({
       },
       secondary: {
         main: SECONDARY_COLOR,
-      },
-      Avatar: {
-        defaultBG: DEFAULT_AVATAR_BACKGROUND,
       }
     },
     zIndex: {
@@ -108,8 +105,8 @@ export const createGraaspTheme = ({
       MuiAvatar: {
         styleOverrides: {
           root: {
-            color: 'white',
-            backgroundColor: '#bcbcbc',
+            color: '#bcbcbc',
+            backgroundColor: 'white',
           },
         },
       },
