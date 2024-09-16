@@ -95,11 +95,11 @@ const FileDropperComponent = ({
   });
 
   const isActive = canDrop && isOver;
-  let bgColor = '#eeeefa';
+  let bgColor = 'hsl(0, 100%, 94%)';
   if (isActive) {
-    bgColor = '#dcdcf6';
+    bgColor = 'hsl(0, 100%, 75%)';
   } else if (!canDrop && isOver) {
-    bgColor = '#ffbaba';
+    bgColor = '#bababa';
   }
 
   return (
