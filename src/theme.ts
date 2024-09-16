@@ -30,10 +30,11 @@ export const DEFAULT_LIGHT_PRIMARY_COLOR = {
 } as const;
 
 /**
- * Very light purple color used as the default background color.
+ * Very light red color used as the default background color.
  * Alternative to the pure white default
  */
-export const DEFAULT_BACKGROUND_COLOR = '#fafaff';
+export const DEFAULT_BACKGROUND_COLOR = '#fff2f2';
+export const DEFAULT_AVATAR_BACKGROUND = '#ffffff';
 
 export const AccentColors: { [K in Context]: string } = {
   [Context.Builder]: '#e0e1e3',
@@ -96,6 +97,9 @@ export const createGraaspTheme = ({
       secondary: {
         main: SECONDARY_COLOR,
       },
+      Avatar: {
+        defaultBG: DEFAULT_AVATAR_BACKGROUND,
+      }
     },
     zIndex: {
       drawer: 100,
