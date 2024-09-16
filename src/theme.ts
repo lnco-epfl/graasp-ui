@@ -33,8 +33,7 @@ export const DEFAULT_LIGHT_PRIMARY_COLOR = {
  * Very light red color used as the default background color.
  * Alternative to the pure white default
  */
-export const DEFAULT_BACKGROUND_COLOR = '#fff2f2';
-export const DEFAULT_AVATAR_BACKGROUND = '#ffffff';
+export const DEFAULT_BACKGROUND_COLOR = '#fffdfd';
 
 export const AccentColors: { [K in Context]: string } = {
   [Context.Builder]: '#e0e1e3',
