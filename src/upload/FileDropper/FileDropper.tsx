@@ -95,9 +95,9 @@ const FileDropperComponent = ({
   });
 
   const isActive = canDrop && isOver;
-  let bgColor = 'hsl(0, 100%, 94%)';
+  let bgColor = '#ebeaea';
   if (isActive) {
-    bgColor = 'hsl(0, 100%, 75%)';
+    bgColor = '#cbcaca';
   } else if (!canDrop && isOver) {
     bgColor = '#bababa';
   }
