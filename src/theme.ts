@@ -40,6 +40,7 @@ export const AccentColors: { [K in Context]: string } = {
   [Context.Player]: '#a3a3a3',
   [Context.Analytics]: '#a3a3a3',
   [Context.Account]: '#a3a3a3',
+  [Context.Library]: '#a3a3a3',
   [Context.Auth]: PRIMARY_COLOR,
   [Context.Unknown]: PRIMARY_COLOR,
 } as const;
