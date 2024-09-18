@@ -35,6 +35,7 @@ export { default as Main } from './Main/Main.js';
 export { default as withCollapse } from './Collapse/withCollapse.js';
 
 export { default as GraaspLogo } from './GraaspLogo/GraaspLogo.js';
+export { default as EpflLogo } from './GraaspLogo/EpflLogo.js';
 
 export { default as ItemLoginAuthorization } from './itemLogin/ItemLoginAuthorization.js';
 export { default as ForbiddenContent } from './itemLogin/ForbiddenContent.js';
@@ -92,9 +93,6 @@ export type { NavigationElement } from './Tree/types.js';
 export * from './ThemeContext/ThemeContext.js';
 
 export * from './types.js';
-
-export * from './GraaspLogo/EpflLogo.js';
-export * from './GraaspLogo/GraaspLogo.js';
 
 export { default as DraggingWrapper } from './draggable/DraggingWrapper.js';
 export * from './draggable/types.js';

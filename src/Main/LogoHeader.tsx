@@ -8,11 +8,11 @@ const LogoHeader = (): JSX.Element => (
     alignItems='center'
     textTransform='none'
     color='inherit'
-    spacing={1}
+    sx={{marginRight: '8px'}}
   >
     <GraaspLogo height={50} />
     <Typography
-      sx={{ display: { xs: 'none', sm: 'block' }, marginRight: '8px'}}
+      sx={{ display: { xs: 'none', sm: 'block' }}}
       color='currentcolor'
       variant='h6'
     >
