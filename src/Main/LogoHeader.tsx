@@ -11,14 +11,13 @@ const LogoHeader = (): JSX.Element => (
     color='inherit'
     spacing={1}
   >
-    <EPFLLogo height={30} />
     <GraaspLogo height={50} />
     <Typography
-      sx={{ display: { xs: 'none', sm: 'block' }}}
+      sx={{ display: { xs: 'none', sm: 'block' }, marginRight: '8px'}}
       color='currentcolor'
       variant='h6'
     >
-      EPFL LNCO Lab
+      LNCO.ai
     </Typography>
   </Stack>
 );

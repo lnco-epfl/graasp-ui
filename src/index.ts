@@ -93,5 +93,8 @@ export * from './ThemeContext/ThemeContext.js';
 
 export * from './types.js';
 
+export * from './GraaspLogo/EpflLogo.js';
+export * from './GraaspLogo/GraaspLogo.js';
+
 export { default as DraggingWrapper } from './draggable/DraggingWrapper.js';
 export * from './draggable/types.js';
