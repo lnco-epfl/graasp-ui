@@ -1,7 +1,6 @@
 import { Stack, Typography } from '@mui/material';
 
 import GraaspLogo from '../GraaspLogo/GraaspLogo.js';
-import EPFLLogo from '@/GraaspLogo/EpflLogo.js';
 
 const LogoHeader = (): JSX.Element => (
   <Stack
