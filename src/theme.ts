@@ -25,8 +25,8 @@ export const DEFAULT_ACTIVE_ACTION_COLOR = '#777578';
  * For example in card thumbnails.
  */
 export const DEFAULT_LIGHT_PRIMARY_COLOR = {
-  main: 'hsl(0, 100%, 94%)',
-  dark: 'hsl(0, 100%, 90%)',
+  main: '#ebeaea',
+  dark: '#cbcaca',
 } as const;
 
 /**
@@ -36,11 +36,10 @@ export const DEFAULT_LIGHT_PRIMARY_COLOR = {
 export const DEFAULT_BACKGROUND_COLOR = '#fffefe';
 
 export const AccentColors: { [K in Context]: string } = {
-  [Context.Builder]: '#e0e1e3',
-  [Context.Player]: '#e0e1e3',
-  [Context.Library]: '#e0e1e3',
-  [Context.Analytics]: '#e0e1e3',
-  [Context.Account]: '#e0e1e3',
+  [Context.Builder]: '#a3a3a3',
+  [Context.Player]: '#a3a3a3',
+  [Context.Analytics]: '#a3a3a3',
+  [Context.Account]: '#a3a3a3',
   [Context.Auth]: PRIMARY_COLOR,
   [Context.Unknown]: PRIMARY_COLOR,
 } as const;
