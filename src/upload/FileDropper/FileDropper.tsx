@@ -15,6 +15,7 @@ import { HTML5Backend, NativeTypes } from 'react-dnd-html5-backend';
 import UploadFileButton, {
   UploadFileButtonProps,
 } from '../UploadFileButton/UploadFileButton.js';
+import { DEFAULT_LIGHT_PRIMARY_COLOR } from '@/theme.js';
 
 export type FileDropperProps = {
   id?: string;
@@ -95,9 +96,9 @@ const FileDropperComponent = ({
   });
 
   const isActive = canDrop && isOver;
-  let bgColor = '#ebeaea';
+  let bgColor: string = DEFAULT_LIGHT_PRIMARY_COLOR.main;
   if (isActive) {
-    bgColor = '#cbcaca';
+    bgColor = DEFAULT_LIGHT_PRIMARY_COLOR.dark;
   } else if (!canDrop && isOver) {
     bgColor = '#bababa';
   }
