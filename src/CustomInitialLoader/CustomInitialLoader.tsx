@@ -35,7 +35,7 @@ const StyledLinearProgress = styled(LinearProgress)(({ theme }) => ({
 const CustomInitialLoader = ({ id }: CustomInitialLoaderProps): JSX.Element => {
   return (
     <StyledContainer id={id}>
-      <GraaspLogo height={100}/>
+      <GraaspLogo height={100} />
       <div>
         <StyledLinearProgress />
       </div>

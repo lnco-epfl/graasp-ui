@@ -95,7 +95,7 @@ export const createGraaspTheme = ({
       },
       secondary: {
         main: SECONDARY_COLOR,
-      }
+      },
     },
     zIndex: {
       drawer: 100,

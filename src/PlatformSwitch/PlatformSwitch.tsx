@@ -9,11 +9,7 @@ import {
   useTheme,
 } from '@mui/material';
 
-import {
-  AnalyticsIcon,
-  BuildIcon,
-  PlayIcon,
-} from '../icons/index.js';
+import { AnalyticsIcon, BuildIcon, PlayIcon } from '../icons/index.js';
 import { PRIMARY_COLOR, SECONDARY_COLOR } from '../theme.js';
 import { Platform } from './hooks.js';
 

@@ -12,10 +12,11 @@ import {
 import { DndProvider, DropTargetMonitor, useDrop } from 'react-dnd';
 import { HTML5Backend, NativeTypes } from 'react-dnd-html5-backend';
 
+import { DEFAULT_LIGHT_PRIMARY_COLOR } from '@/theme.js';
+
 import UploadFileButton, {
   UploadFileButtonProps,
 } from '../UploadFileButton/UploadFileButton.js';
-import { DEFAULT_LIGHT_PRIMARY_COLOR } from '@/theme.js';
 
 export type FileDropperProps = {
   id?: string;
