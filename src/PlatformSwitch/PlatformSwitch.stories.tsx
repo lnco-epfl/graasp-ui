@@ -17,10 +17,6 @@ const MOCK_PLATFORM_PROPS = {
     tooltip: 'player',
     href: 'player',
   },
-  [Platform.Library]: {
-    tooltip: 'library',
-    href: 'library',
-  },
   [Platform.Analytics]: {
     tooltip: 'analytics',
     href: 'analytics',
@@ -67,7 +63,6 @@ export const Light: Story = {
     checkHref(canvas, Platform.Builder, args.platformsProps);
     checkHref(canvas, Platform.Player, args.platformsProps);
     checkHref(canvas, Platform.Analytics, args.platformsProps);
-    checkHref(canvas, Platform.Library, args.platformsProps);
   },
 };
 
@@ -86,7 +81,6 @@ export const Dark: Story = {
     checkHref(canvas, Platform.Builder, args.platformsProps);
     checkHref(canvas, Platform.Player, args.platformsProps);
     checkHref(canvas, Platform.Analytics, args.platformsProps);
-    checkHref(canvas, Platform.Library, args.platformsProps);
   },
 };
 
@@ -105,7 +99,6 @@ export const Disabled: Story = {
     const canvas = within(canvasElement);
     checkHref(canvas, Platform.Builder, args.platformsProps);
     checkHref(canvas, Platform.Player, args.platformsProps);
-    checkHref(canvas, Platform.Library, args.platformsProps);
 
     // disabled
     const button = await canvas.findByTestId(Platform.Analytics);
@@ -131,11 +124,7 @@ export const CustomTooltips: Story = {
       player: {
         tooltip: 'Platform 2',
       },
-      library: {
-        disabled: true,
-        tooltip: 'Platform 3',
-      },
-      analytics: {
+      Analytics: {
         tooltip: 'Platform 4',
         placement: 'right',
       },
@@ -146,7 +135,6 @@ export const CustomTooltips: Story = {
     checkHref(canvas, Platform.Builder, args.platformsProps);
     checkHref(canvas, Platform.Player, args.platformsProps);
     checkHref(canvas, Platform.Analytics, args.platformsProps);
-    checkHref(canvas, Platform.Library, args.platformsProps);
   },
 };
 
@@ -167,7 +155,6 @@ export const Mobile: Story = {
     await userEvent.hover(button as Element);
     await canvas.findByLabelText(Platform.Player);
     await canvas.findByLabelText(Platform.Builder);
-    await canvas.findByLabelText(Platform.Library);
     await canvas.findByLabelText(Platform.Analytics);
   },
 };
@@ -189,7 +176,6 @@ export const CustomIconForMobile: Story = {
     await userEvent.hover(button as Element);
     await canvas.findByLabelText(Platform.Player);
     await canvas.findByLabelText(Platform.Builder);
-    await canvas.findByLabelText(Platform.Library);
     await canvas.findByLabelText(Platform.Analytics);
   },
 };
