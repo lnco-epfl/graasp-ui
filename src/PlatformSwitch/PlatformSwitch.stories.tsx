@@ -125,7 +125,7 @@ export const CustomTooltips: Story = {
       player: {
         tooltip: 'Platform 2',
       },
-      Analytics: {
+      analytics: {
         tooltip: 'Platform 4',
         placement: 'right',
       },
