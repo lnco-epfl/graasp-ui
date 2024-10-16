@@ -1,11 +1,17 @@
-type Props = {
+type LogoProps = {
   height: number;
+  sx?: { fill: string };
 };
 
-const GraaspLogo = ({ height }: Props): JSX.Element => {
+const GraaspLogo = ({ height, sx }: LogoProps): JSX.Element => {
   return (
     <>
-      <img alt='LNCO Logo' height={height} src='/lnco-logo.png' />
+      <img
+        alt='LNCO Logo'
+        height={height}
+        style={{ ...sx }}
+        src='/lnco-logo.png'
+      />
     </>
   );
 };
