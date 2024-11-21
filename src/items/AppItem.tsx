@@ -134,7 +134,7 @@ const AppItem = ({
       sx={{ visibility: isIFrameLoading ? 'hidden' : 'visible' }}
       title={item?.name}
       width={APP_ITEM_WIDTH}
-      allow='fullscreen'
+      allow='fullscreen; serial'
     />
   );
 
