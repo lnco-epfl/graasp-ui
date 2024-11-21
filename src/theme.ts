@@ -7,8 +7,6 @@ import {
 
 import { Context } from '@graasp/sdk';
 
-import { AllowedContext } from './types.js';
-
 export const PRIMARY_COLOR = '#000000';
 export const SECONDARY_COLOR = '#FFFFFF';
 
@@ -44,6 +42,7 @@ export const AccentColors: { [K in Context]: string } = {
   [Context.Account]: '#a3a3a3',
   [Context.Library]: '#a3a3a3',
   [Context.Auth]: PRIMARY_COLOR,
+  [Context.Unknown]: '#a3a3a3',
 } as const;
 
 // add custom typography variants, based on the design guideline
