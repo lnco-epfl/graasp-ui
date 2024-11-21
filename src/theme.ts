@@ -42,7 +42,7 @@ export const AccentColors: { [K in Context]: string } = {
   [Context.Account]: '#a3a3a3',
   [Context.Library]: '#a3a3a3',
   [Context.Auth]: PRIMARY_COLOR,
-  [Context.Unknown]: PRIMARY_COLOR,
+  [Context.Unknown]: '#a3a3a3',
 } as const;
 
 // add custom typography variants, based on the design guideline
@@ -67,6 +67,58 @@ declare module '@mui/material/Typography' {
     display: true;
     label: true;
     note: true;
+  }
+}
+
+// Update Typescript color palette types
+declare module '@mui/material/styles' {
+  interface Palette {
+    builder: Palette['primary'];
+    player: Palette['primary'];
+    analytics: Palette['primary'];
+    library: Palette['primary'];
+    account: Palette['primary'];
+    auth: Palette['primary'];
+  }
+
+  interface PaletteOptions {
+    builder?: PaletteOptions['primary'];
+    player?: PaletteOptions['primary'];
+    analytics?: PaletteOptions['primary'];
+    library?: PaletteOptions['primary'];
+    account?: PaletteOptions['primary'];
+    auth?: PaletteOptions['primary'];
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    builder: true;
+    player: true;
+    analytics: true;
+    library: true;
+    account: true;
+    auth: true;
+  }
+}
+declare module '@mui/material/IconButton' {
+  interface IconButtonPropsColorOverrides {
+    builder: true;
+    player: true;
+    analytics: true;
+    library: true;
+    account: true;
+    auth: true;
+  }
+}
+declare module '@mui/material/CircularProgress' {
+  interface CircularProgressPropsColorOverrides {
+    builder: true;
+    player: true;
+    analytics: true;
+    library: true;
+    account: true;
+    auth: true;
   }
 }
 
@@ -208,7 +260,25 @@ export const createGraaspTheme = ({
       },
     },
   });
-  return responsiveFontSizes(baseTheme, {
+
+  const augmentedColorTheme = createTheme(baseTheme, {
+    palette: Object.fromEntries(
+      Object.entries(AccentColors).map(([platform, color]) => {
+        return [
+          platform,
+          baseTheme.palette.augmentColor({
+            color: {
+              main: color,
+              contrastText: '#fff',
+            },
+            name: platform,
+          }),
+        ];
+      }),
+    ),
+  });
+
+  return responsiveFontSizes(augmentedColorTheme, {
     disableAlign: true,
     factor: 2,
     // allows to also convert non-standard typography styles like "display" that we added
