@@ -7,8 +7,6 @@ import {
 
 import { Context } from '@graasp/sdk';
 
-import { AllowedContext } from './types.js';
-
 export const PRIMARY_COLOR = '#000000';
 export const SECONDARY_COLOR = '#FFFFFF';
 
