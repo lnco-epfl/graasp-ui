@@ -44,6 +44,7 @@ export const AccentColors: { [K in Context]: string } = {
   [Context.Account]: '#a3a3a3',
   [Context.Library]: '#a3a3a3',
   [Context.Auth]: PRIMARY_COLOR,
+  [Context.Unknown]: '#a3a3a3',
 } as const;
 
 // add custom typography variants, based on the design guideline
