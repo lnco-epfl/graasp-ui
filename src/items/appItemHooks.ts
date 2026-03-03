@@ -4,6 +4,21 @@ import { DiscriminatedItem, LocalContext, UUID } from '@graasp/sdk';
 
 export type Token = string;
 
+const CALIBRATION_FONT_SIZES = [
+  'small',
+  'normal',
+  'large',
+  'extra-large',
+] as const;
+
+type CalibrationFontSize = (typeof CALIBRATION_FONT_SIZES)[number];
+
+const isCalibrationFontSize = (
+  value: unknown,
+): value is CalibrationFontSize =>
+  typeof value === 'string' &&
+  CALIBRATION_FONT_SIZES.includes(value as CalibrationFontSize);
+
 export type ContextPayload = Pick<
   LocalContext,
   | 'apiHost'
@@ -100,11 +115,17 @@ const useAppCommunication = ({
 
           case POST_MESSAGE_KEYS.POST_CALIBRATION_SCALE: {
             const scale = payload?.scale;
+            const fontSize = payload?.fontSize;
+            const hasScale = scale !== undefined;
+            const hasFontSize = fontSize !== undefined;
             if (
-              typeof scale !== 'number' ||
-              Number.isNaN(scale) ||
-              scale <= 0.5 ||
-              scale >= 3 ||
+              (!hasScale && !hasFontSize) ||
+              (hasScale &&
+                (typeof scale !== 'number' ||
+                  Number.isNaN(scale) ||
+                  scale <= 0.5 ||
+                  scale >= 3)) ||
+              (fontSize !== undefined && !isCalibrationFontSize(fontSize)) ||
               !contextPayload.rootId
             ) {
               return;
@@ -114,7 +135,8 @@ const useAppCommunication = ({
               localStorage.setItem(
                 `lnco_screen_calibration_${contextPayload.rootId}`,
                 JSON.stringify({
-                  scale,
+                  ...(hasScale ? { scale } : {}),
+                  ...(fontSize !== undefined ? { fontSize } : {}),
                   timestamp: Date.now(),
                   calibrationAppId: item.id,
                 }),
@@ -122,7 +144,8 @@ const useAppCommunication = ({
 
               console.debug('Saved screen calibration scale', {
                 rootId: contextPayload.rootId,
-                scale,
+                ...(hasScale ? { scale } : {}),
+                ...(fontSize !== undefined ? { fontSize } : {}),
                 itemId: item.id,
               });
             } catch {
