@@ -13,7 +13,10 @@ export type ContextPayload = Pick<
   | 'lang'
   | 'context'
   | 'accountId'
->;
+> & {
+  rootId?: UUID;
+  calibrationScale?: number;
+};
 
 const buildPostMessageKeys = (
   itemId: UUID,
@@ -27,6 +30,7 @@ const buildPostMessageKeys = (
   GET_AUTH_TOKEN_SUCCESS: `GET_AUTH_TOKEN_SUCCESS_${itemId}`,
   GET_AUTH_TOKEN_FAILURE: `GET_AUTH_TOKEN_FAILURE_${itemId}`,
   POST_AUTO_RESIZE: `POST_AUTO_RESIZE_${itemId}`,
+  POST_CALIBRATION_SCALE: `POST_CALIBRATION_SCALE_${itemId}`,
 });
 
 const useAppCommunication = ({
@@ -91,6 +95,40 @@ const useAppCommunication = ({
               return;
             }
             iFrameRef.current.height = payload.toString();
+            break;
+          }
+
+          case POST_MESSAGE_KEYS.POST_CALIBRATION_SCALE: {
+            const scale = payload?.scale;
+            if (
+              typeof scale !== 'number' ||
+              Number.isNaN(scale) ||
+              scale <= 0.5 ||
+              scale >= 3 ||
+              !contextPayload.rootId
+            ) {
+              return;
+            }
+
+            try {
+              localStorage.setItem(
+                `lnco_screen_calibration_${contextPayload.rootId}`,
+                JSON.stringify({
+                  scale,
+                  timestamp: Date.now(),
+                  calibrationAppId: item.id,
+                }),
+              );
+
+              console.debug('Saved screen calibration scale', {
+                rootId: contextPayload.rootId,
+                scale,
+                itemId: item.id,
+              });
+            } catch {
+              return;
+            }
+
             break;
           }
         }
