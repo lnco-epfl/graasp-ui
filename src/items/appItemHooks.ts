@@ -13,9 +13,7 @@ const CALIBRATION_FONT_SIZES = [
 
 type CalibrationFontSize = (typeof CALIBRATION_FONT_SIZES)[number];
 
-const isCalibrationFontSize = (
-  value: unknown,
-): value is CalibrationFontSize =>
+const isCalibrationFontSize = (value: unknown): value is CalibrationFontSize =>
   typeof value === 'string' &&
   CALIBRATION_FONT_SIZES.includes(value as CalibrationFontSize);
 
@@ -125,15 +123,14 @@ const useAppCommunication = ({
                   Number.isNaN(scale) ||
                   scale <= 0.5 ||
                   scale >= 3)) ||
-              (fontSize !== undefined && !isCalibrationFontSize(fontSize)) ||
-              !contextPayload.rootId
+              (fontSize !== undefined && !isCalibrationFontSize(fontSize))
             ) {
               return;
             }
 
             try {
               localStorage.setItem(
-                `lnco_screen_calibration_${contextPayload.rootId}`,
+                `lnco_screen_calibration`,
                 JSON.stringify({
                   ...(hasScale ? { scale } : {}),
                   ...(fontSize !== undefined ? { fontSize } : {}),
@@ -141,14 +138,8 @@ const useAppCommunication = ({
                   calibrationAppId: item.id,
                 }),
               );
-
-              console.debug('Saved screen calibration scale', {
-                rootId: contextPayload.rootId,
-                ...(hasScale ? { scale } : {}),
-                ...(fontSize !== undefined ? { fontSize } : {}),
-                itemId: item.id,
-              });
-            } catch {
+            } catch (error) {
+              console.warn('Failed to save screen calibration scale', error);
               return;
             }
 
