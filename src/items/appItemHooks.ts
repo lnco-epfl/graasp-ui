@@ -4,6 +4,24 @@ import { DiscriminatedItem, LocalContext, UUID } from '@graasp/sdk';
 
 export type Token = string;
 
+const CALIBRATION_FONT_SIZES = [
+  'small',
+  'normal',
+  'large',
+  'extra-large',
+] as const;
+
+type CalibrationFontSize = (typeof CALIBRATION_FONT_SIZES)[number];
+
+type ScreenCalibration = {
+  scale?: number;
+  fontSize?: CalibrationFontSize;
+};
+
+const isCalibrationFontSize = (value: unknown): value is CalibrationFontSize =>
+  typeof value === 'string' &&
+  CALIBRATION_FONT_SIZES.includes(value as CalibrationFontSize);
+
 export type ContextPayload = Pick<
   LocalContext,
   | 'apiHost'
@@ -13,7 +31,9 @@ export type ContextPayload = Pick<
   | 'lang'
   | 'context'
   | 'accountId'
->;
+> & {
+  screenCalibration?: ScreenCalibration;
+};
 
 const buildPostMessageKeys = (
   itemId: UUID,
@@ -27,6 +47,7 @@ const buildPostMessageKeys = (
   GET_AUTH_TOKEN_SUCCESS: `GET_AUTH_TOKEN_SUCCESS_${itemId}`,
   GET_AUTH_TOKEN_FAILURE: `GET_AUTH_TOKEN_FAILURE_${itemId}`,
   POST_AUTO_RESIZE: `POST_AUTO_RESIZE_${itemId}`,
+  POST_CALIBRATION_SCALE: `POST_CALIBRATION_SCALE_${itemId}`,
 });
 
 const useAppCommunication = ({
@@ -91,6 +112,44 @@ const useAppCommunication = ({
               return;
             }
             iFrameRef.current.height = payload.toString();
+            break;
+          }
+
+          case POST_MESSAGE_KEYS.POST_CALIBRATION_SCALE: {
+            const scale = payload?.screenCalibration?.scale;
+            const fontSize = payload?.screenCalibration?.fontSize;
+            const hasScale = scale !== undefined;
+            const hasFontSize = fontSize !== undefined;
+            if (
+              (!hasScale && !hasFontSize) ||
+              (hasScale &&
+                (typeof scale !== 'number' ||
+                  Number.isNaN(scale) ||
+                  scale <= 0.5 ||
+                  scale >= 3)) ||
+              (fontSize !== undefined && !isCalibrationFontSize(fontSize))
+            ) {
+              return;
+            }
+
+            try {
+              const screenCalibration: ScreenCalibration = {
+                ...(hasScale ? { scale } : {}),
+                ...(fontSize !== undefined ? { fontSize } : {}),
+              };
+
+              localStorage.setItem(
+                `lnco_screen_calibration`,
+                JSON.stringify({
+                  screenCalibration,
+                  timestamp: Date.now(),
+                  calibrationAppId: item.id,
+                }),
+              );
+            } catch {
+              return;
+            }
+
             break;
           }
         }
